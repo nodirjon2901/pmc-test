@@ -9,12 +9,12 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // Barcha endpointlar uchun CORS ruxsati
-                .allowedOrigins("http://localhost:3000", "https://*.vercel.app") // Ruxsat etilgan domenlar
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Ruxsat etilgan HTTP metodlari
-                .allowedHeaders("*") // Har qanday sarlavhalar ruxsat etiladi
-                .allowCredentials(true) // Cookie va autentifikatsiya uchun
-                .maxAge(3600); // Keshlash muddati (soniyalarda)
+        registry.addMapping("/**")
+                .allowedOrigins("*") // Barcha domenlarga ruxsat beradi
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(false) // Cookie uchun ruxsat bermaydi
+                .maxAge(3600);
     }
 
 }
